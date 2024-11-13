@@ -1,29 +1,30 @@
 const studentForm = document.getElementById("studentForm");
-const studentContainer = document.querySelector("students");
+
 const nameInput = studentForm['name'];
-const registrationInput = studentForm['registrationNumber'];
-const ageInput = studentForm ['age'];
+const addressInput = studentForm['address'];
+const ageInput = studentForm['age'];
+const emailInput = studentForm['email'];
+const StudentContainer = document.querySelector(".students");
 
-const student = [
-  {
-    name: "Monicah",
-    registrationNumber: "F01/2024",
-    age:27
-  }
-]
+const students=[];
 
-const createStudentElement =({name, registrationNumber, age})=>{
-    const studentDiv = document.createElement("div");
-    const studentName = document.createElement("h2");
-    const studentRegistration = document.createElement("p");
-    const studentAge =  document.createElement("p");
+const addStudent = (name, address, age, email) => {
 
+};
+const createStudentElement = (name, address, age, email) => {
+  const studentDiv = document.createElement('div');
+  const studentName = document.createElement('h2');
+  const studentAddress = document.createElement('p');
+  const studentAge = document.createElement('p');
+  const studentEmail = document.createElement('p');
 
-    studentName.innerHTML = "Student name " + name;
-    studentRegistration.innerHTML = "Student registration Number: " + registrationNumber;
-    studentAge.innerHTML = "Student age " + age;
+  studentName.innerHTML="Student name: " + name;
+  studentAddress.innerHTML="Student address: " + address;
+  studentAge.innerHTML = "Student age: " + age;
+  studentEmail.innerHTML="Student email: " + email;
 
-    studentDiv.append(studentName, studentRegistration, studentAge);
-    studentContainer.appendChild(studentDiv)
-    
+  studentDiv.append(studentName, studentAddress, studentAge, studentEmail){
+
+  };
+  
 }
