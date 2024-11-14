@@ -6,7 +6,7 @@ const ageInput = studentForm['age'];
 const emailInput = studentForm['email'];
 const StudentContainer = document.querySelector(".students");
 
-const students = localStorage.getItem("students");
+const students = JSON.parse(localStorage.getItem("students")) || [];
 
 const addStudent = (name, address, age, email) => {
   students.push({
