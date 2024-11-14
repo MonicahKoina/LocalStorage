@@ -6,17 +6,19 @@ const ageInput = studentForm['age'];
 const emailInput = studentForm['email'];
 const StudentContainer = document.querySelector(".students");
 
-const students=[
-  {
-    name:"Monicah",
-    address:"limuru",
-    age:30,
-    email:"monmon@gmail.com"
-  }
-];
+const students = localStorage.getItem("students");
 
 const addStudent = (name, address, age, email) => {
+  students.push({
+    name,
+    address,
+    age,
+    email
+  });
 
+  localStorage.setItem("students", JSON.stringify(students));
+
+  return {name, address, age, email}
 };
 const createStudentElement = ({name, address, age, email}) => {
   const studentDiv = document.createElement('div');
@@ -36,3 +38,18 @@ const createStudentElement = ({name, address, age, email}) => {
 }
 
 students.forEach(createStudentElement);
+studentForm.onsubmit = e => {
+  e.preventDefault();
+
+  const newStudent = addStudent(
+    nameInput.value,
+    addressInput.value,
+    ageInput.value,
+    emailInput.value
+  );
+  createStudentElement(newStudent)
+  nameInput.value=""
+  addressInput.value=""
+  ageInput.value=""
+  emailInput.value=""
+}
