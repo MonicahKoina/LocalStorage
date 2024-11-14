@@ -6,12 +6,19 @@ const ageInput = studentForm['age'];
 const emailInput = studentForm['email'];
 const StudentContainer = document.querySelector(".students");
 
-const students=[];
+const students=[
+  {
+    name:"Monicah",
+    address:"limuru",
+    age:30,
+    email:"monmon@gmail.com"
+  }
+];
 
 const addStudent = (name, address, age, email) => {
 
 };
-const createStudentElement = (name, address, age, email) => {
+const createStudentElement = ({name, address, age, email}) => {
   const studentDiv = document.createElement('div');
   const studentName = document.createElement('h2');
   const studentAddress = document.createElement('p');
@@ -23,8 +30,9 @@ const createStudentElement = (name, address, age, email) => {
   studentAge.innerHTML = "Student age: " + age;
   studentEmail.innerHTML="Student email: " + email;
 
-  studentDiv.append(studentName, studentAddress, studentAge, studentEmail){
-
-  };
+  studentDiv.append(studentName, studentAddress, studentAge, studentEmail);
+  StudentContainer.appendChild(studentDiv);
   
 }
+
+students.forEach(createStudentElement);
